@@ -4,16 +4,32 @@ class Cartpage extends StatelessWidget{
   const Cartpage({super.key});
   @override
   Widget build(BuildContext context){
+    List <Map> imageList=[
+    {
+      "image":"assets/images/coffe1.jpg",
+      "name":"Dalgona Macha",
+      "price":"rs:299"
+    },
+    {
+      "image":"assets/images/coffee2.jpg",
+      "name":"Bursting Blueberry",
+      "price":"rs:249"
+    },
+    {
+      "image":"assets/images/coffee3.jpg",
+      "name":"Cinnamon & Cocoa",
+      "price":"rs:99"
+    },
+    
+    ];
     return Scaffold(
       backgroundColor: Colors.black,
     
     body:
     Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 40,bottom: 10),
-          child: Text("Cart",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.white),),
-        ),
+        Padding(padding: EdgeInsets.only(top: 30)),
+        Text("Cart",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.white),),
         Expanded(
           child: ListView.separated(
             padding: EdgeInsets.all(15),
@@ -28,51 +44,56 @@ class Cartpage extends StatelessWidget{
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: const Color.fromARGB(255, 255, 254, 254),
-                        image: DecorationImage(image: AssetImage("assets/images/coffee.jpeg"),fit: BoxFit.cover)
+                        image: DecorationImage(image: AssetImage(imageList[index]["image"]),fit: BoxFit.cover)
                         ),
                       ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(padding: EdgeInsets.only(top: 15.0)),
-                      Text("Cappuccino",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
-                      Text("Dalgona Macha",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
-                      SizedBox(height: 10,),
-                      Text("rs.299",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
-                    ],
-                  ),
-                  SizedBox(width: 50,),
+                      SizedBox(width: 10,),
                   Container(
-                    height: 35,
-                    width: 95,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: const Color.fromARGB(255, 69, 69, 69)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    color: Colors.grey,
+                    height: 100,
+                    width: 150,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          height: 35,
-                          width: 35,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
-                            ),
-                            onPressed: (){}, child: Center(child: Text("+",style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),)),)),
-                        
-                        Text("1",style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.bold),),
-
-                        SizedBox(
-                          height: 35,
-                          width: 35,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
-                            ),
-                            onPressed: (){}, child: Center(child: Text("-",style: TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),)),))
+                        Padding(padding: EdgeInsets.only(top: 10.0)),
+                        Text("Cappuccino",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
+                        Text(imageList[index]["name"],style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
+                        SizedBox(height: 10,),
+                        Text(imageList[index]["price"],style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
                       ],
                     ),
                   ),
+                  SizedBox(width: 10,),
+                  Container(
+                    height: 30,
+                    width: 105,
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: const Color.fromARGB(255, 240, 0, 0)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            minimumSize:Size(30,30),
+                            maximumSize: Size(30,30),
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+                          ),
+                          onPressed: (){}, child: Center(child: Text("+",style: TextStyle(color: Colors.black,fontSize: 18),)),),
+                        
+                        Text("1",style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.bold),),
+                  
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            minimumSize:Size(30,30),
+                            maximumSize: Size(30,30),
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+                          ),
+                          onPressed: (){}, child: Center(child: Text("-",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold),)),)
+                      ],
+                    ),
+                  ),
+                  //SizedBox(width: 10,)
                   ],
                 ),
                 height: 110,
@@ -86,6 +107,8 @@ class Cartpage extends StatelessWidget{
             itemCount: 3,
             )
         ),
+        Text("Cappuccino",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
+        CircleAvatar(backgroundColor: Colors.red,)
       ]
     ),
     );
