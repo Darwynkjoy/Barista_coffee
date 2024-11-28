@@ -1,7 +1,5 @@
 import 'package:barista/cartpage.dart';
-import 'package:barista/homepage.dart';
 import 'package:barista/productpage.dart';
-import 'package:barista/welcome.dart';
 import 'package:flutter/material.dart';
 
 void main() {
