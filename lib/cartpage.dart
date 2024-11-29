@@ -30,7 +30,9 @@ class Cartpage extends StatelessWidget{
       children: [
         Padding(padding: EdgeInsets.only(top: 30)),
         Text("Cart",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.white),),
-        Expanded(
+        Container(
+          width: 410,height: 400,
+          color: Colors.white,
           child: ListView.separated(
             padding: EdgeInsets.all(15),
             itemBuilder: (context,index){
@@ -105,10 +107,53 @@ class Cartpage extends StatelessWidget{
               return Padding(padding: EdgeInsets.all(10));
             },
             itemCount: 3,
-            )
+            ),
         ),
-        Text("Cappuccino",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
-        CircleAvatar(backgroundColor: Colors.red,)
+        Text("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - ",style: TextStyle(fontSize: 17,color: Colors.white),),
+        SizedBox(height: 10,),
+        Container(
+          height: 30,
+          width: 390,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(2),color:Colors.orange),
+          child: Row(
+            children: [
+              SizedBox(width: 15,),
+              Container(
+                child:  Text("Apply Coupon Code",style: TextStyle(fontSize: 15,color: Colors.white),)),
+              SizedBox(width: 190,),
+              Container(
+                height: 30,
+                width: 30,
+                color: const Color.fromARGB(255, 255, 255, 255),
+                child: IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward,color: const Color.fromARGB(255, 0, 0, 0),))
+                ),
+              SizedBox(width: 10,),
+            ]
+          ),
+        ),
+        SizedBox(height: 10,),
+        Container(
+          padding: EdgeInsets.all(10),
+          color: Colors.grey,
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Delivery Charges",style: TextStyle(fontSize: 15,color: Colors.white),),
+                  Text("rs:49",style: TextStyle(fontSize: 15,color: Colors.white),),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Taxes",style: TextStyle(fontSize: 15,color: Colors.white),),
+                  Text("rs:64.87",style: TextStyle(fontSize: 15,color: Colors.white),),
+                ]
+              ),
+            ],
+          ),
+        ),
       ]
     ),
     );

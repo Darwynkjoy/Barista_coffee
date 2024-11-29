@@ -6,7 +6,7 @@ class Homepage extends StatelessWidget{
     List <Map> imageList=[
     {
       "image":"assets/images/coffe1.jpg",
-      "name":"Dalgona Macha",
+      "name":"Dalgona \n Macha",
       "price":"rs:299"
     },
     {
@@ -85,7 +85,9 @@ class Homepage extends StatelessWidget{
                       onPressed: (){}, child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.search,color: Colors.white,size: 35,)
+                          Icon(Icons.search,color: Colors.white,size: 35,),
+                          SizedBox(width: 10,),
+                          Text("Browse your favorite coffee...",style: TextStyle(fontSize: 20,color: const Color.fromARGB(255, 90, 90, 90)),)
                         ],
                       )),
                   ),),
@@ -95,65 +97,69 @@ class Homepage extends StatelessWidget{
 
           
           Expanded(
-            child: Container(
-              padding: EdgeInsets.all(20),
-              child: GridView.builder(
-                itemCount: 6,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 20,
-                crossAxisSpacing: 20,
-                ),
-                itemBuilder: (context,index){
-                  return Container(
-                    height: 500,
-                    width: 250,
+            child: GridView.builder(
+              itemCount: 6,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 5,
+              crossAxisSpacing: 0,
+              childAspectRatio: 0.6
+              ),
+              itemBuilder: (context,index){
+                return Padding(
+                  padding: const EdgeInsets.only(left: 10.0,top: 10,right: 10,bottom: 10),
+                  child: Container(
                     padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: const Color.fromARGB(255, 65, 65, 65)),
                     child: Column(
                       children: [
                         Container(
-                          height: 60,
+                          height: 160,
                           width: 170,
                             decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             image: DecorationImage(image: AssetImage(imageList[index]["image"]),
-                            fit: BoxFit.fill
+                            fit: BoxFit.cover
                             )),
                         ),
-                        Container(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(imageList[index]["name"],style: TextStyle(fontSize: 18,color: Colors.amber,fontWeight: FontWeight.bold),),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(imageList[index]["name"],style: TextStyle(fontSize: 19,color: const Color.fromARGB(255, 255, 255, 255),fontWeight: FontWeight.bold),),
 
-                              Container(
-                                height: 30,
-                                width: 80,
-                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: Colors.amber),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    SizedBox(height: 40,width: 40,
-                                    child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
-                                      ),
-                                      onPressed: (){},
-                                      child:Center(child: Text("+",style: TextStyle(fontSize: 20,color: Colors.black),))),
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
+                            SizedBox(height: 30,),
+                            
+                            Container(
+                              height: 45,
+                              width: 120,
+                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: const Color.fromARGB(255, 92, 92, 92)),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(imageList[index]["price"],style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),),
+                                  ),
+                                  SizedBox(height: 45,width: 45,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
+                                    ),
+                                    onPressed: (){},
+                                    child:Center(child: Text("+",style: TextStyle(fontSize: 30,color: Colors.black),))),
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
                         )
                       ],
                     ),
-                  );
-                }
-                ),
-            ),
+                  ),
+                );
+              }
+              ),
           ),
         ]
           ),

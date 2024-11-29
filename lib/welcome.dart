@@ -13,7 +13,7 @@ class WelcomePage extends StatelessWidget{
               child: Stack(
                 children: [Container(
                   height: 700,
-                   decoration: BoxDecoration(image: DecorationImage(image: AssetImage("/home/software-11am/Desktop/darwyn/flutterapps/barista/assets/images/coffee.jpeg"),fit: BoxFit.cover))
+                   decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/coffee.jpeg"),fit: BoxFit.cover))
                 ),
                 Positioned(
                   top: 600,

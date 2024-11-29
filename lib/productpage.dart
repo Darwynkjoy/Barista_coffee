@@ -12,15 +12,27 @@ class Productpage extends StatelessWidget{
           Center(
             child: Padding(
               padding: const EdgeInsets.only(top: 15,left: 15,right: 15),
-              child: Container(
-                height: 450,
-                width:400,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/Coffeeincup.jpg"),
-                    fit: BoxFit.cover),
-                    borderRadius: BorderRadius.circular(40)
-                    )
+              child: Stack(
+                children: [
+                  Container(
+                    height: 450,
+                    width:400,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/Coffeeincup.jpg"),
+                        fit: BoxFit.cover,),
+                        borderRadius: BorderRadius.circular(40)
+                        )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: CircleAvatar(backgroundColor: Colors.transparent,
+                      child: IconButton(onPressed: (){},
+                      icon: Icon(Icons.arrow_back)),
+                      foregroundColor: Colors.white,
+                      ),
+                  )
+                ],
               ),
             ),
           ),
