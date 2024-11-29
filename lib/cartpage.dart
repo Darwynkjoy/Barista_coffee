@@ -67,41 +67,41 @@ class Cartpage extends StatelessWidget{
                     ),
                   ),
 
-                  SizedBox(width: 10,),
+                  SizedBox(width: 5,),
 
                   Container(
-                    height: 35,
+                    height: 40,
                     width: 100,
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: const Color.fromARGB(255, 132, 132, 132)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(
-                          //height: 35,
-                          //width: 35,
+                          height: 40,
+                          width: 40,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              minimumSize: Size(35, 35),
-                              maximumSize: Size(35, 35),
+                              //minimumSize: Size(40, 45),
+                              //maximumSize: Size(40, 45),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                               backgroundColor: const Color.fromARGB(255, 255, 240, 194)
                             ),
-                            onPressed: (){}, child: Text("+",style: TextStyle(fontSize: 25,color: Colors.black),)),
+                            onPressed: (){}, child: Text("+",style: TextStyle(fontSize: 20,color: Colors.black),)),
                         ),
 
                         Text(imageList[index]["quantity"],style: TextStyle(fontSize: 17,color: Colors.white),),
 
                         SizedBox(
-                          //height: 35,
-                          //width: 35,
+                          height: 40,
+                          width: 40,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              minimumSize: Size(35, 35),
-                              maximumSize: Size(35, 35),
+                              //minimumSize: Size(40, 45),
+                              //maximumSize: Size(40, 45),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                               backgroundColor: const Color.fromARGB(255, 255, 240, 194)
                             ),
-                            onPressed: (){}, child: Text("+",style: TextStyle(fontSize: 25,color: Colors.black),)),
+                            onPressed: (){}, child: Text("-",style: TextStyle(fontSize: 20,color: Colors.black),)),
                         ),
                       ],
                     ),
