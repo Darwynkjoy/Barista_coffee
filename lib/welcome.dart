@@ -12,7 +12,7 @@ class WelcomePage extends StatelessWidget{
             child: Expanded(
               child: Stack(
                 children: [Container(
-                  height: 700,
+                  height: 600,
                    decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/coffee.jpeg"),fit: BoxFit.cover))
                 ),
                 Positioned(
@@ -40,7 +40,7 @@ class WelcomePage extends StatelessWidget{
                       width: 380,
                       child: ElevatedButton(onPressed: (){},
                       style: ElevatedButton.styleFrom(
-                        shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                         backgroundColor: const Color.fromARGB(255, 228, 121, 20),
                       ),
                       child: Text("Get Started",style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),))))

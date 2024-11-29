@@ -8,17 +8,21 @@ class Cartpage extends StatelessWidget{
     {
       "image":"assets/images/coffe1.jpg",
       "name":"Dalgona Macha",
-      "price":"rs:299"
+      "price":"Rs:299",
+      "quantity":"1",
     },
     {
       "image":"assets/images/coffee2.jpg",
       "name":"Bursting Blueberry",
-      "price":"rs:249"
+      "price":"Rs:249",
+      "quantity":"2",
+      
     },
     {
       "image":"assets/images/coffee3.jpg",
       "name":"Cinnamon & Cocoa",
-      "price":"rs:99"
+      "price":"Rs:99",
+      "quantity":"1"
     },
     
     ];
@@ -32,7 +36,6 @@ class Cartpage extends StatelessWidget{
         Text("Cart",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.white),),
         Container(
           width: 410,height: 400,
-          color: Colors.white,
           child: ListView.separated(
             padding: EdgeInsets.all(15),
             itemBuilder: (context,index){
@@ -45,13 +48,11 @@ class Cartpage extends StatelessWidget{
                       width: 90,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: const Color.fromARGB(255, 255, 254, 254),
                         image: DecorationImage(image: AssetImage(imageList[index]["image"]),fit: BoxFit.cover)
                         ),
                       ),
                       SizedBox(width: 10,),
                   Container(
-                    color: Colors.grey,
                     height: 100,
                     width: 150,
                     child: Column(
@@ -65,42 +66,52 @@ class Cartpage extends StatelessWidget{
                       ],
                     ),
                   ),
+
                   SizedBox(width: 10,),
+
                   Container(
-                    height: 30,
-                    width: 105,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: const Color.fromARGB(255, 240, 0, 0)),
+                    height: 35,
+                    width: 100,
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),color: const Color.fromARGB(255, 132, 132, 132)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            minimumSize:Size(30,30),
-                            maximumSize: Size(30,30),
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
-                          ),
-                          onPressed: (){}, child: Center(child: Text("+",style: TextStyle(color: Colors.black,fontSize: 18),)),),
-                        
-                        Text("1",style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.bold),),
-                  
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            minimumSize:Size(30,30),
-                            maximumSize: Size(30,30),
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
-                          ),
-                          onPressed: (){}, child: Center(child: Text("-",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.bold),)),)
+                        SizedBox(
+                          //height: 35,
+                          //width: 35,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: Size(35, 35),
+                              maximumSize: Size(35, 35),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                              backgroundColor: const Color.fromARGB(255, 255, 240, 194)
+                            ),
+                            onPressed: (){}, child: Text("+",style: TextStyle(fontSize: 25,color: Colors.black),)),
+                        ),
+
+                        Text(imageList[index]["quantity"],style: TextStyle(fontSize: 17,color: Colors.white),),
+
+                        SizedBox(
+                          //height: 35,
+                          //width: 35,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: Size(35, 35),
+                              maximumSize: Size(35, 35),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                              backgroundColor: const Color.fromARGB(255, 255, 240, 194)
+                            ),
+                            onPressed: (){}, child: Text("+",style: TextStyle(fontSize: 25,color: Colors.black),)),
+                        ),
                       ],
                     ),
                   ),
-                  //SizedBox(width: 10,)
+
                   ],
                 ),
                 height: 110,
                 width: 200,
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: const Color.fromARGB(255, 82, 82, 82)),
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: const Color.fromARGB(255, 74, 74, 74)),
               );
             },
             separatorBuilder: (context,index){
@@ -109,48 +120,68 @@ class Cartpage extends StatelessWidget{
             itemCount: 3,
             ),
         ),
-        Text("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - ",style: TextStyle(fontSize: 17,color: Colors.white),),
+        Text("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ",style: TextStyle(fontSize: 17,color: Colors.grey),),
         SizedBox(height: 10,),
         Container(
-          height: 30,
+          height: 50,
           width: 390,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(2),color:Colors.orange),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: const Color.fromARGB(69, 253, 207, 69)),
           child: Row(
             children: [
-              SizedBox(width: 15,),
+              SizedBox(width: 25,),
               Container(
-                child:  Text("Apply Coupon Code",style: TextStyle(fontSize: 15,color: Colors.white),)),
-              SizedBox(width: 190,),
-              Container(
-                height: 30,
-                width: 30,
-                color: const Color.fromARGB(255, 255, 255, 255),
-                child: IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward,color: const Color.fromARGB(255, 0, 0, 0),))
-                ),
+                child:  Text("Apply Coupon Code",style: TextStyle(fontSize: 20,color: Colors.white),)),
+              SizedBox(width: 130,),
+              IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward_ios,color: Colors.white),),
               SizedBox(width: 10,),
             ]
           ),
         ),
         SizedBox(height: 10,),
         Container(
-          padding: EdgeInsets.all(10),
-          color: Colors.grey,
+          padding: EdgeInsets.all(15),
+          color: const Color.fromARGB(255, 0, 0, 0),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Delivery Charges",style: TextStyle(fontSize: 15,color: Colors.white),),
-                  Text("rs:49",style: TextStyle(fontSize: 15,color: Colors.white),),
+                  Text("Delivery Charges",style: TextStyle(fontSize: 20,color: const Color.fromARGB(255, 215, 215, 215)),),
+                  Text("Rs:49",style: TextStyle(fontSize: 20,color: const Color.fromARGB(255, 215, 215, 215)),),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Taxes",style: TextStyle(fontSize: 15,color: Colors.white),),
-                  Text("rs:64.87",style: TextStyle(fontSize: 15,color: Colors.white),),
+                  Text("Taxes",style: TextStyle(fontSize: 20,color: const Color.fromARGB(255, 215, 215, 215)),),
+                  Text("Rs:64.87",style: TextStyle(fontSize: 20,color: const Color.fromARGB(255, 215, 215, 215)),),
                 ]
               ),
+
+              Text("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ",style: TextStyle(fontSize: 17,color: Colors.grey),),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Grand Total",style: TextStyle(fontSize: 25,color: const Color.fromARGB(255, 215, 215, 215)),),
+                  Text("Rs:1009.87",style: TextStyle(fontSize: 25,color: const Color.fromARGB(255, 215, 215, 215)),),
+                ]
+              ),
+
+              SizedBox(height: 40,),
+
+              SizedBox(
+                height: 50,
+                width: 390,
+                child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),),
+                  backgroundColor: const Color.fromARGB(255, 255, 240, 194)
+                ),
+                onPressed: (){},
+                child: Text("PAY NOW",style: TextStyle(fontSize: 25,color: const Color.fromARGB(255, 0, 0, 0)),)
+                ),
+              )
             ],
           ),
         ),

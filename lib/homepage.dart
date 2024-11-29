@@ -7,32 +7,32 @@ class Homepage extends StatelessWidget{
     {
       "image":"assets/images/coffe1.jpg",
       "name":"Dalgona \n Macha",
-      "price":"rs:299"
+      "price":"Rs:299"
     },
     {
       "image":"assets/images/coffee2.jpg",
       "name":"Bursting Blueberry",
-      "price":"rs:249"
+      "price":"Rs:249"
     },
     {
       "image":"assets/images/coffee3.jpg",
       "name":"Cinnamon & Cocoa",
-      "price":"rs:99"
+      "price":"Rs:99"
     },
     {
       "image":"assets/images/coffee4.png.jpeg",
       "name":"Marshmello & Cocoa",
-      "price":"rs:99"
+      "price":"Rs:99"
     },
         {
       "image":"assets/images/coffee5.jpg",
       "name":"Drizzled with Caramel",
-      "price":"rs:199"
+      "price":"Rs:199"
     },
         {
       "image":"assets/images/coffee6.jpeg",
       "name":"Dalgona Whipped Macha",
-      "price":"rs:299"
+      "price":"Rs:299"
     },
     ];
     return Scaffold(
@@ -64,7 +64,7 @@ class Homepage extends StatelessWidget{
                   width:60,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  image: DecorationImage(image:AssetImage("assets/images/Coffeeincup.jpg")),
+                  image: DecorationImage(image:AssetImage("assets/images/face2.jpg"),fit: BoxFit.cover),
                   color: const Color.fromARGB(255, 29, 39, 18),
                       ),
                     )),
@@ -101,7 +101,7 @@ class Homepage extends StatelessWidget{
               itemCount: 6,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisSpacing: 5,
+              mainAxisSpacing: 0 ,
               crossAxisSpacing: 0,
               childAspectRatio: 0.6
               ),
@@ -132,22 +132,21 @@ class Homepage extends StatelessWidget{
                             
                             Container(
                               height: 45,
-                              width: 120,
+                              width: 140,
                               decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: const Color.fromARGB(255, 92, 92, 92)),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(imageList[index]["price"],style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),),
-                                  ),
-                                  SizedBox(height: 45,width: 45,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
-                                    ),
-                                    onPressed: (){},
-                                    child:Center(child: Text("+",style: TextStyle(fontSize: 30,color: Colors.black),))),
+                                  Text(imageList[index]["price"],style: TextStyle(fontSize: 20,color: Colors.white,fontWeight: FontWeight.bold),),
+                                  SizedBox(width: 5,),
+                                  Container(
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))
+                                      ),
+                                      onPressed: (){},
+                                      child:Center(child: Text("+",style: TextStyle(fontSize: 30,color: Colors.black),))
+                                      ),
                                   )
                                 ],
                               ),

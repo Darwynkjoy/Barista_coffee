@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'barista coffe app',
       debugShowCheckedModeBanner: false,
-      home: Homepage(),
+      home: Cartpage(),
     );
   }
 }
