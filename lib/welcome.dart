@@ -1,3 +1,4 @@
+import 'package:barista/homepage.dart';
 import 'package:flutter/material.dart';
 
 class WelcomePage extends StatelessWidget{
@@ -38,7 +39,9 @@ class WelcomePage extends StatelessWidget{
                     child: SizedBox(
                       height: 60,
                       width: 380,
-                      child: ElevatedButton(onPressed: (){},
+                      child: ElevatedButton(onPressed: (){
+                        Navigator.push(context,MaterialPageRoute(builder: (context)=>Homepage()));
+                      },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                         backgroundColor: const Color.fromARGB(255, 228, 121, 20),
@@ -48,7 +51,6 @@ class WelcomePage extends StatelessWidget{
               )
               )  
           ),
-          //Stack(child: Text("Fall in Love with",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30),))
         ],
       ),
     );

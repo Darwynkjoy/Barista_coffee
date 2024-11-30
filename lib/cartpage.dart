@@ -27,7 +27,7 @@ class Cartpage extends StatelessWidget{
     
     ];
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: const Color.fromARGB(255, 35, 35, 35),
     
     body:
     Column(
@@ -131,7 +131,7 @@ class Cartpage extends StatelessWidget{
               SizedBox(width: 25,),
               Container(
                 child:  Text("Apply Coupon Code",style: TextStyle(fontSize: 20,color: Colors.white),)),
-              SizedBox(width: 130,),
+              SizedBox(width: 120,),
               IconButton(onPressed: (){}, icon: Icon(Icons.arrow_forward_ios,color: Colors.white),),
               SizedBox(width: 10,),
             ]
@@ -140,7 +140,7 @@ class Cartpage extends StatelessWidget{
         SizedBox(height: 10,),
         Container(
           padding: EdgeInsets.all(15),
-          color: const Color.fromARGB(255, 0, 0, 0),
+          color: const Color.fromARGB(255, 35, 35, 35),
           child: Column(
             children: [
               Row(
@@ -187,6 +187,19 @@ class Cartpage extends StatelessWidget{
         ),
       ]
     ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.black,
+        selectedItemColor: const Color.fromARGB(255, 245, 227, 172),
+        unselectedItemColor: const Color.fromARGB(255, 63, 63, 63),
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home,size: 30,),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.search,size: 30,),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite,size: 30,),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.settings,size: 30,),label: ""),
+        ]),
+
     );
   }
 }

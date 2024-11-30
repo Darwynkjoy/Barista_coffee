@@ -1,8 +1,13 @@
+import 'package:barista/cartpage.dart';
+import 'package:barista/productpage.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatelessWidget{
   const Homepage({super.key});
   Widget build(BuildContext context){
+    Future.delayed(Duration(seconds: 5),(){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>Productpage()),);
+    });
     List <Map> imageList=[
     {
       "image":"assets/images/coffe1.jpg",
@@ -162,6 +167,19 @@ class Homepage extends StatelessWidget{
           ),
         ]
           ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.black,
+        selectedItemColor: const Color.fromARGB(255, 245, 227, 172),
+        unselectedItemColor: const Color.fromARGB(255, 63, 63, 63),
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home,size: 30,),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.search,size: 30,),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite,size: 30,),label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.settings,size: 30,),label: ""),
+        ]),
+
     );
   }
 }

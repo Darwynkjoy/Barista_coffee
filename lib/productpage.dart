@@ -1,9 +1,13 @@
+import 'package:barista/cartpage.dart';
 import 'package:flutter/material.dart';
 
 class Productpage extends StatelessWidget{
   const Productpage({super.key});
   @override
   Widget build(BuildContext context){
+    Future.delayed(Duration(seconds: 5),(){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>Cartpage()));
+    });
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
