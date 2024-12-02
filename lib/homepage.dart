@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 class Homepage extends StatelessWidget{
   const Homepage({super.key});
   Widget build(BuildContext context){
-    Future.delayed(Duration(seconds: 5),(){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>Productpage()),);
-    });
+    
     List <Map> imageList=[
     {
       "image":"assets/images/coffe1.jpg",
@@ -118,14 +116,23 @@ class Homepage extends StatelessWidget{
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: const Color.fromARGB(255, 65, 65, 65)),
                     child: Column(
                       children: [
-                        Container(
-                          height: 160,
-                          width: 170,
-                            decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            image: DecorationImage(image: AssetImage(imageList[index]["image"]),
-                            fit: BoxFit.cover
-                            )),
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Productpage(
+                              image: imageList[index]["image"],
+                              name: imageList[index]["name"],
+                              price: imageList[index]["price"],
+                            )),);
+                          },
+                          child: Container(
+                            height: 160,
+                            width: 170,
+                              decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(image: AssetImage(imageList[index]["image"]),
+                              fit: BoxFit.cover
+                              )),
+                          ),
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,

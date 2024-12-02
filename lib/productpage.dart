@@ -2,12 +2,14 @@ import 'package:barista/cartpage.dart';
 import 'package:flutter/material.dart';
 
 class Productpage extends StatelessWidget{
-  const Productpage({super.key});
+  String? image;
+  String? price;
+  String? name;
+  Productpage({super.key,required this.image,required this.name,required this.price});
   @override
   Widget build(BuildContext context){
-    Future.delayed(Duration(seconds: 5),(){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>Cartpage()));
-    });
+
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
@@ -23,7 +25,7 @@ class Productpage extends StatelessWidget{
                     width:400,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage("assets/images/Coffeeincup.jpg"),
+                        image: AssetImage(image!),
                         fit: BoxFit.cover,),
                         borderRadius: BorderRadius.circular(40)
                         )
@@ -62,7 +64,7 @@ class Productpage extends StatelessWidget{
                   Row(
                     //mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Drizzeled with Caramel    ",
+                      Text(name!,
                         style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -136,7 +138,7 @@ class Productpage extends StatelessWidget{
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,)),
-                          Text("Rs.249",
+                          Text(price!,
                             style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
@@ -153,7 +155,14 @@ class Productpage extends StatelessWidget{
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                           backgroundColor: const Color.fromARGB(255, 255, 236, 175),
                           ),
-                        onPressed: (){},
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Cartpage(
+                            image: image,
+                              name: name,
+                              price: price,
+                              
+                          )));
+                        },
                         child: Text("BUY NOW",style: TextStyle(fontSize: 17,color: Colors.black),)))
                     ],
                   )

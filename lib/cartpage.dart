@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class Cartpage extends StatelessWidget{
-  const Cartpage({super.key});
+  String? image;
+  String? name;
+  String? price;
+
+  Cartpage({super.key,required this.image,required this.name,required this.price});
   @override
   Widget build(BuildContext context){
     List <Map> imageList=[
@@ -48,7 +52,7 @@ class Cartpage extends StatelessWidget{
                       width: 90,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        image: DecorationImage(image: AssetImage(imageList[index]["image"]),fit: BoxFit.cover)
+                        image: DecorationImage(image: AssetImage(image!),fit: BoxFit.cover)
                         ),
                       ),
                       SizedBox(width: 10,),
@@ -59,10 +63,10 @@ class Cartpage extends StatelessWidget{
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(padding: EdgeInsets.only(top: 10.0)),
-                        Text("Cappuccino",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
-                        Text(imageList[index]["name"],style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
+                        
+                        Text(name!,style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
                         SizedBox(height: 10,),
-                        Text(imageList[index]["price"],style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
+                        Text(price!,style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold,color: Colors.white),),
                       ],
                     ),
                   ),
